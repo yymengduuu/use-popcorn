@@ -67,6 +67,8 @@ This app uses the OMDb API with a demo key:
 const KEY = "f84fc31d";
 ```
 
+---
+
 ## ✨ Credits
 
 - Built by @yymengduuu
