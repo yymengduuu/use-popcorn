@@ -24,6 +24,10 @@ export default function useMovies(query) {
         setMovies(data.Search);
         setError(null);
       } catch (err) {
+        if (err.name === "AbortError") {
+          console.log("Fetch aborted");
+        } else {
+          console.error("Failed to fetch movies:", err.message);
         setError(err.message);
       }
     }
