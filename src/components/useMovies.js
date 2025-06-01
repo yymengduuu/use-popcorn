@@ -30,6 +30,8 @@ export default function useMovies(query) {
           console.error("Failed to fetch movies:", err.message);
           setError(err.message);
         }
+      } finally {
+        setIsLoading(false);
       }
     }
 
