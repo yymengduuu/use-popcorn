@@ -37,7 +37,7 @@ export default function App() {
       <Main>
         <Box>
           {isLoading && <p className="loader">Loading...</p>}
-          {error && <p>{error}</p>}
+          {error && <p classNAme="error">{error}</p>}
           {isLoading && !error && (
             <MovieList movies={movies} onSelectMovie={onSelectMovie} />
           )}
