@@ -325,7 +325,7 @@ function WatchedMoviesList({ watched, handleDeleteWatched }) {
   );
 }
 
-function WatchedMovie({ movie }) {
+function WatchedMovie({ movie, handleDeleteWatched }) {
   return (
     <li>
       <img src={movie.poster} alt={`${movie.title} poster`} />
