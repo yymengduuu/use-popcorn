@@ -4,6 +4,7 @@ const KEY = "f84fc31d";
 export default function useMovies(query) {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function fetchMovies() {
