@@ -343,6 +343,7 @@ function WatchedMovie({ movie, handleDeleteWatched }) {
           <span>⏳</span>
           <span>{movie.runtime} min</span>
         </p>
+        <button className="btn-delete"></button>
       </div>
     </li>
   );
