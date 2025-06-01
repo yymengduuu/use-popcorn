@@ -51,7 +51,7 @@ export default function App() {
               <WatchedSummary watched={watched} />
               <WatchedMoviesList
                 watched={watched}
-                handleDeleteWatched={handleDeleteWatched}
+                onDeleteWatched={handleDeleteWatched}
               />
             </>
           )}
