@@ -28,7 +28,7 @@ export default function useMovies(query) {
           console.log("Fetch aborted");
         } else {
           console.error("Failed to fetch movies:", err.message);
-        setError(err.message);
+          setError(err.message);
       }
     }
     fetchMovies();
