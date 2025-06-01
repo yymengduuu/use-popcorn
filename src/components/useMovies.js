@@ -29,9 +29,14 @@ export default function useMovies(query) {
         } else {
           console.error("Failed to fetch movies:", err.message);
           setError(err.message);
+        }
       }
     }
+
     fetchMovies();
+    return () => {
+      controller.abort();
+    };
   }, [query]);
 
   return { movies, error };
