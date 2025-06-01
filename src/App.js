@@ -8,7 +8,7 @@ const average = (arr) =>
 export default function App() {
   const [watched, setWatched] = useState([]);
   const [query, setQuery] = useState("");
-  const { movies, isLoading } = useMovies(query);
+  const { movies, isLoading, error } = useMovies(query);
   const [selectedId, setSelectedId] = useState(null);
 
   function onSelectMovie(id) {
