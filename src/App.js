@@ -36,7 +36,9 @@ export default function App() {
 
       <Main>
         <Box>
-          <MovieList movies={movies} onSelectMovie={onSelectMovie} />
+          {isLoading && !error && (
+            <MovieList movies={movies} onSelectMovie={onSelectMovie} />
+          )}
         </Box>
         <Box>
           {selectedId ? (
