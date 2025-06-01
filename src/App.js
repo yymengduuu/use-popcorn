@@ -311,21 +311,21 @@ function WatchedSummary({ watched }) {
   );
 }
 
-function WatchedMoviesList({ watched, handleDeleteWatched }) {
+function WatchedMoviesList({ watched, onDeleteWatched }) {
   return (
     <ul className="list">
       {watched.map((movie) => (
         <WatchedMovie
           movie={movie}
           key={movie.imdbID}
-          handleDeleteWatched={handleDeleteWatched}
+          onDeleteWatched={onDeleteWatched}
         />
       ))}
     </ul>
   );
 }
 
-function WatchedMovie({ movie, handleDeleteWatched }) {
+function WatchedMovie({ movie, onDeleteWatched }) {
   return (
     <li>
       <img src={movie.poster} alt={`${movie.title} poster`} />
