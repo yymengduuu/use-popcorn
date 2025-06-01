@@ -41,5 +41,5 @@ export default function useMovies(query) {
     };
   }, [query]);
 
-  return { movies, error };
+  return { movies, error, isLoading };
 }
