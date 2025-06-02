@@ -121,9 +121,6 @@ function Box({ children }) {
 }
 
 /*
-function WatchedBox() {
-  const [watched, setWatched] = useState(tempWatchedData);
-  const [isOpen2, setIsOpen2] = useState(true);
 
   return (
     <div className="box">
