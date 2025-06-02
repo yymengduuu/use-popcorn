@@ -124,8 +124,7 @@ function Box({ children }) {
 
   
        
-      )}
-    </div>
+      
   );
 }
 */
