@@ -120,15 +120,6 @@ function Box({ children }) {
   );
 }
 
-/*
-
-  
-       
-      
-  
-
-
-
 function MovieList({ movies, onSelectMovie }) {
   return (
     <ul className="list">
