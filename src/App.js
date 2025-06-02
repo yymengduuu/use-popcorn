@@ -126,7 +126,7 @@ function Box({ children }) {
        
       
   
-}
+
 */
 
 function MovieList({ movies, onSelectMovie }) {
