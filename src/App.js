@@ -122,12 +122,7 @@ function Box({ children }) {
 
 /*
 
-  return (
-    <div className="box">
-      <button
-        className="btn-toggle"
-        onClick={() => setIsOpen2((open) => !open)}
-      >
+  
         {isOpen2 ? "–" : "+"}
       </button>
 
