@@ -2,6 +2,8 @@
 
 A modern, interactive movie search and rating application built with React and the OMDb API. Search for movies, view detailed information, and rate them with a custom star rating component.
 
+Open http://localhost:3000/use-popcorn to view it in your browser.
+
 ---
 
 ## 🚀 Features
