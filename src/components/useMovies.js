@@ -1,8 +1,65 @@
-import { useState, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 
 const KEY = "f84fc31d";
+
+const initialState = {
+  movies: [],
+  error: null,
+  isLoading: true,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "dataReceived":
+      return {
+        ...state,
+        movies: action.payload,
+        isLoading: false,
+        error: null,
+      };
+    case "error":
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
+      };
+    case "loading":
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+      };
+    default: {
+      throw new Error(`Unknown action type: ${action.type}`);
+    }
+  }
+};
+
 export default function useMovies(query) {
-  const [movies, setMovies] = useState([]);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(
+    function () {
+      if (!query) return;
+
+      dispatch({ type: "loading" });
+      fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.Response === "False") {
+            throw new Error(data.Error);
+          }
+          dispatch({ type: "dataReceived", payload: data.Search });
+        })
+        .catch((err) => dispatch({ type: "error", payload: err.message }));
+    },
+    [query]
+  );
+
+  return state;
+}
+
+/*  const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -34,6 +91,7 @@ export default function useMovies(query) {
         setIsLoading(false);
       }
     }
+ 
 
     fetchMovies();
     return () => {
@@ -41,5 +99,4 @@ export default function useMovies(query) {
     };
   }, [query]);
 
-  return { movies, error, isLoading };
-}
+  return { movies, error, isLoading }; */
