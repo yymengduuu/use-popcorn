@@ -44,12 +44,16 @@ export default function App() {
         </Box>
         <Box>
           {selectedId ? (
-            <MovieDetails
-              watched={watched}
-              selectedId={selectedId}
-              onCloseMovie={onCloseMovie}
-              onAddWatched={handleAddWatched}
-            />
+            isLoading ? (
+              <p className="loader">Loading...</p>
+            ) : (
+              <MovieDetails
+                watched={watched}
+                selectedId={selectedId}
+                onCloseMovie={onCloseMovie}
+                onAddWatched={handleAddWatched}
+              />
+            )
           ) : (
             <>
               <WatchedSummary watched={watched} />

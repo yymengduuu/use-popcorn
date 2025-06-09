@@ -5,7 +5,7 @@ const KEY = "f84fc31d";
 const initialState = {
   movies: [],
   error: null,
-  isLoading: true,
+  isLoading: false,
 };
 
 const reducer = (state, action) => {
@@ -42,6 +42,8 @@ export default function useMovies(query) {
     function () {
       if (!query) return;
 
+      const controller = new AbortController();
+
       dispatch({ type: "loading" });
       fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`)
         .then((res) => res.json())
@@ -52,6 +54,7 @@ export default function useMovies(query) {
           dispatch({ type: "dataReceived", payload: data.Search });
         })
         .catch((err) => dispatch({ type: "error", payload: err.message }));
+      return () => controller.abort();
     },
     [query]
   );
