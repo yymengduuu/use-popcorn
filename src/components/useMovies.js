@@ -45,7 +45,7 @@ export default function useMovies(query) {
       const controller = new AbortController();
 
       dispatch({ type: "loading" });
-      fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`)
+      fetch(`https://www.omdbapi.com/?apikey=${KEY}&s=${query}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.Response === "False") {
